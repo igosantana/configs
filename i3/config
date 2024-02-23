@@ -195,5 +195,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
-	position top
+	      position top
 }
+
+exec_always feh --bg-fill ~/Pictures/wpps/backiee-271226-landscape.jpg
