@@ -120,6 +120,15 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+#Monitors
+set $fm DP-0
+set $sm HDMI-0
+
+workspace 1 output $fm
+workspace 2 output $fm
+workspace 3 output $sm
+workspace 4 output $sm
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -199,3 +208,5 @@ bar {
 }
 
 exec_always feh --bg-fill ~/Pictures/wpps/backiee-271226-landscape.jpg
+exec_always --no-startup-id xrandr --output DP-0 --primary --mode 1920x1080 --output HDMI-0 --mode 1920x1080 --rotate left --auto --right-of DP-0
+
