@@ -87,7 +87,7 @@ label=VPN
 #
 [time]
 label=
-command=date '+%Y-%m-%d %H:%M:%S'
+command=date '+%d-%m-%Y %H:%M:%S'
 interval=5
 
 
