@@ -14,8 +14,8 @@ keymap.set("n", "<leader>of", ":G<cr> <C-w>o")
 keymap.set("n", "x", '"_x')
 
 -- Split window
-keymap.set("n", "<leader>sv", ":sp<cr>", default_opts)
-keymap.set("n", "<leader>sh", ":vs<cr>", default_opts)
+keymap.set("n", "<leader>sh", ":sp<cr>", default_opts)
+keymap.set("n", "<leader>sv", ":vs<cr>", default_opts)
 
 -- Move window
 keymap.set("n", "sh", "<C-w>h")

@@ -44,11 +44,6 @@ return require("packer").startup(function(use)
     requires = { "nvim-tree/nvim-web-devicons", opt = true },
   })
   use({
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
-    requires = { { "nvim-lua/plenary.nvim" } },
-  })
-  use({
     "nvimdev/lspsaga.nvim",
     after = "nvim-lspconfig",
   })
