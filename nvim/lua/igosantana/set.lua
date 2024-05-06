@@ -45,6 +45,3 @@ vim.opt.clipboard:append("unnamedplus")
 -- Split Windows
 vim.opt.splitright = true
 vim.opt.splitbelow = true
-
--- Disable the mouse while in nvim
-vim.opt.mouse = ""
