@@ -1,5 +1,7 @@
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 local lspconfig = require("lspconfig")
+local telescope_builtin = require("telescope.builtin")
 
 local on_attach = function(client, bufnr)
 	if client.server_capabilities.documentFormattingProvider then
@@ -14,13 +16,16 @@ lspconfig.lua_ls.setup({
 	capabilities = capabilities,
 	settings = {
 		Lua = {
-			diagnostics = {
-				-- Get the language server to recognize the `vim` global
-				globals = { "vim" },
-				workspace = {
-					library = vim.api.nvim_get_runtime_file("", true),
-					checkThirdParty = false,
+			runtime = { version = "LuaJIT" },
+			workspace = {
+				checkThirdParty = false,
+				library = {
+					"${3rd}/luv/library",
+					unpack(vim.api.nvim_get_runtime_file("", true)),
 				},
+			},
+			completion = {
+				callSnippet = "Replace",
 			},
 		},
 	},
@@ -52,8 +57,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- Buffer local mappings.
 		-- See `:help vim.lsp.*` for documentation on any of the below functions
 		local opts = { buffer = ev.buf }
-		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-		vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+		vim.keymap.set("n", "gd", telescope_builtin.lsp_definitions, opts)
+		vim.keymap.set("n", "gr", telescope_builtin.lsp_references, opts)
+		vim.keymap.set("n", "gI", telescope_builtin.lsp_implementations, opts)
+		vim.keymap.set("n", "<leader>ds", telescope_builtin.lsp_document_symbols, opts)
+		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 	end,
 })
 
