@@ -3,16 +3,7 @@ capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp"
 local lspconfig = require("lspconfig")
 local telescope_builtin = require("telescope.builtin")
 
-local on_attach = function(client, bufnr)
-	if client.server_capabilities.documentFormattingProvider then
-		vim.api.nvim_command([[augroup Format]])
-		vim.api.nvim_command([[autocmd! * <buffer>]])
-		vim.api.nvim_command([[augroup END]])
-	end
-end
-
 lspconfig.lua_ls.setup({
-	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = {
 		Lua = {
@@ -32,17 +23,14 @@ lspconfig.lua_ls.setup({
 })
 
 lspconfig.gopls.setup({
-	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
 lspconfig.pyright.setup({
-	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
 lspconfig.tsserver.setup({
-	on_attach = on_attach,
 	capabilities = capabilities,
 	filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
 	cmd = { "typescript-language-server", "--stdio" },
