@@ -2,7 +2,6 @@ local keymap = vim.keymap
 local default_opts = { noremap = true, silent = true }
 
 vim.g.mapleader = " "
-keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- Quit nvim
 keymap.set("n", "<leader>qq", ":qa!<CR>")
@@ -45,3 +44,5 @@ keymap.set("v", "p", '"_dp', default_opts)
 
 -- Cancel search highlights
 keymap.set("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", default_opts)
+
+vim.keymap.set("n", "-", "<CMD>Oil<CR>")
