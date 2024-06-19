@@ -45,4 +45,8 @@ keymap.set("v", "p", '"_dp', default_opts)
 -- Cancel search highlights
 keymap.set("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", default_opts)
 
-vim.keymap.set("n", "-", "<CMD>Oil<CR>")
+-- Open parent directory in current window
+keymap.set("n", "-", "<CMD>Oil<CR>")
+
+-- Undotree
+keymap.set("n", "<leader>u", "<CMD>UndotreeToggle<CR>", default_opts)

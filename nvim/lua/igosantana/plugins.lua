@@ -14,7 +14,6 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
 	"wbthomason/packer.nvim",
 	"nvim-lua/plenary.nvim",
-	"rebelot/kanagawa.nvim",
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.4",
@@ -63,6 +62,14 @@ local plugins = {
 		-- Optional dependencies
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
+	{
+		"andymass/vim-matchup",
+		setup = function()
+			vim.g.matchup_matchparen_offscreen = { method = "popup" }
+		end,
+	},
+	{ "rmagatti/auto-session" },
+	{ "mbbill/undotree" },
 }
 
 local opts = {}
