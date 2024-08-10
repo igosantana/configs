@@ -32,7 +32,7 @@ lspconfig.pyright.setup({
 
 lspconfig.tsserver.setup({
 	capabilities = capabilities,
-	filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+	filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "typescript.tsx" },
 	cmd = { "typescript-language-server", "--stdio" },
 })
 

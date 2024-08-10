@@ -55,7 +55,6 @@ local plugins = {
 	"onsails/lspkind-nvim",
 	"windwp/nvim-autopairs",
 	"christoomey/vim-tmux-navigator",
-	{ "ellisonleao/gruvbox.nvim", priority = 1000, config = true },
 	{
 		"stevearc/oil.nvim",
 		opts = {},
@@ -70,6 +69,10 @@ local plugins = {
 	},
 	{ "rmagatti/auto-session" },
 	{ "mbbill/undotree" },
+	{
+		"zenbones-theme/zenbones.nvim",
+		dependencies = "rktjmp/lush.nvim",
+	},
 }
 
 local opts = {}
